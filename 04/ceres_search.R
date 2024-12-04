@@ -62,4 +62,24 @@ n = n + m |>
 
 
 n
-# 2572 too low
+
+# Part II
+patterns = c("MMSS", "MSMS", "SSMM", "SMSM")
+nn = 0
+for (i in 2:(len-1)){
+  for (j in 2:(len-1)){
+    if(m[i, j] != "A"){
+      next
+    } else{
+      #print(i)
+      #print(j)
+      # i = 3
+      # j = 7
+      corners = paste0(m[i-1, j-1], m[i-1, j+1], m[i+1, j-1], m[i+1, j+1])
+      #print(corners)
+      nn = nn + corners %in% patterns
+    }
+  }
+}
+
+nn
