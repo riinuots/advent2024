@@ -12,11 +12,15 @@ n = m |>
   paste(collapse = "") |> 
   str_count("XMAS|SAMX")
 
-mt = t(m)
+#mt = t(m)
+mt = m[, len:1]
+
 n = n + mt |> 
   diag() |>
   paste(collapse = "") |> 
   str_count("XMAS|SAMX")
+
+m_flip = m[, len:1]
 
 for(i in 1:(len-3)){
   #print(m[, -c(1:i)])
