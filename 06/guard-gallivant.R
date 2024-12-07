@@ -3,10 +3,10 @@ library(tidyverse)
 imax = 130
 jmax = 130
 
-# read.fwf but don't treat # as comments
 input_orig = read.fwf("06/input", widths = rep(1, imax), comment.char = "") |> 
   as.matrix()
 
+# Part I 
 loc = which(input_orig == "^", arr.ind = TRUE)
 dir = "^"
 move = list("^" = list(-1, 0), "v" = list(1, 0), "<" = list(0, -1), ">" = list(0, 1))
